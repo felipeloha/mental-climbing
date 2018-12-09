@@ -1,0 +1,11 @@
+.mapboxgl-canvas {
+    left: 0;
+}
+
+.styledPopUp{
+  background: white;
+  color: #3f618c;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 2px;
+}
