@@ -4,6 +4,8 @@ import React, {
 
 import './ClimbMap.css';
 
+import Crags from '../Crags/Crags'
+
 import ReactMapboxGl, {
     ZoomControl,
     Marker,
@@ -83,7 +85,7 @@ export default class ClimbMap extends Component {
         });
     }
 
-    markerClick(marker, {feature}: {feature: any}) {
+    markerClick(marker, {feature}: { feature: any }) {
         this.setState({
             center: feature.geometry.coordinates,
             zoom: [14],
@@ -140,6 +142,7 @@ export default class ClimbMap extends Component {
     //TODO: unit tests
     render() {
         const {
+            center,
             markers,
             selectedMarker
         } = this.state;
@@ -160,34 +163,10 @@ export default class ClimbMap extends Component {
                     <div>MyCenter-{center}</div>
                 </Marker>
 
-                <Layer
-                    type="symbol"
-                    layout={{
-                        "icon-image": "mountain-15",
-                        "icon-size": 1.75
-                    }}>
-                    {Array.from(markers).map(([id, marker], index) => {
-                        return <Feature
-                            key={marker.id}
-                            coordinates={marker.coordinates}
-                            onClick={this.markerClick.bind(this, marker)}
-                        />
-                    })}
-                </Layer>
-
-                {selectedMarker && (
-                    <Popup key={selectedMarker.id} coordinates={selectedMarker.coordinates}>
-                        <div className="styledPopUp">
-                            <div>{selectedMarker.id}</div>
-                            <div>
-                                Routes: {selectedMarker.routes.length}<br/>
-                                {selectedMarker.routes.map((route, index) => {
-                                    return <div key={route.id}>{route.name}</div>
-                                })}
-                            </div>
-                        </div>
-                    </Popup>
-                )}
+                <Crags
+                    center={center}
+                    markers={markers}
+                    selectedMarker={selectedMarker}/>
             </MapBox>
         )
     }
