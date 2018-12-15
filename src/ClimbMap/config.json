@@ -1,10 +1,15 @@
 {
   "token": "pk.eyJ1IjoiZmVsaXBlbG9wZXptYXAiLCJhIjoiY2puN2prb3M4MTM1NjNwbnYybmN5eHJnMSJ9.lS8M2ApNbTA8Hi0blrfGag",
+  "mountainProjectAPIKey": "200372954-0078fe17d58508600a5f342877aa43f3",
+  "mountainMaxDistance": 1000,
   "styles": {
     "londonCycle": "mapbox://styles/mapbox/light-v9",
     "light": "mapbox://styles/mapbox/light-v9",
     "dark": "mapbox://styles/mapbox/dark-v9",
     "basic": "mapbox://styles/mapbox/basic-v9",
     "outdoor": "mapbox://styles/mapbox/outdoors-v10"
+  },
+  "positions": {
+    "berlin": [13.404954, 52.520008]
   }
 }
